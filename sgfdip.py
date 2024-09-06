@@ -113,19 +113,19 @@ def main():
     ip_list = get_ip_data()
 
     # 新步骤：去除IP地址中的速度信息
-    #cleaned_ip_list = clean_ip_data(ip_list)
+    cleaned_ip_list = clean_ip_data(ip_list)
 
     # 第二步：过滤并格式化新加坡IP地址
-    #singapore_ips = filter_and_format_ips(cleaned_ip_list)
+    singapore_ips = filter_and_format_ips(cleaned_ip_list)
 
     # 新步骤：去除重复的IP地址
-    #unique_singapore_ips = remove_duplicate_ips(singapore_ips)
-    unique_singapore_ips = remove_duplicate_ips(ip_list)
+    unique_singapore_ips = remove_duplicate_ips(singapore_ips)
+    #unique_singapore_ips = remove_duplicate_ips(ip_list)
 
     # 如果没有找到符合条件的新加坡IP，则不执行任何操作
-   # if not unique_singapore_ips:
-       # print("No Singapore IPs found. Keeping existing sgfd_ips.txt file.")
-       # return
+    if not unique_singapore_ips:
+        print("No Singapore IPs found. Keeping existing sgfd_ips.txt file.")
+        return
 
     # 第三步：将格式化后的新加坡IP地址写入文件
     write_to_file(unique_singapore_ips)
